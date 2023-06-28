@@ -1,26 +1,15 @@
-name: Azure Static Web Apps CI/CD
+name: Deploy
 
 on:
-  push:
-    branches:
-      - develop
   pull_request:
-    types: [opened, synchronize, reopened, closed]
+    types: [closed]
     branches:
       - main
 
 jobs:
-  build_job:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
-    runs-on: ubuntu-latest
-    name: Build (Develop)
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
   deploy_job:
     needs: build_job
-    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.base.ref == 'refs/heads/main'
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     name: Deploy (Main)
     steps:
