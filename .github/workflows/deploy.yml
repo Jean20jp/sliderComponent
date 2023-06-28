@@ -1,15 +1,16 @@
 name: Deploy
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
       - main
 
 jobs:
-  build_job:
+  deploy_job:
+    needs: build_job
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
-    name: Build (Main)
+    name: Deploy (Main)
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
