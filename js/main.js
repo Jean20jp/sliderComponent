@@ -4,7 +4,8 @@ var auto;
 
 function Struct(){
 	let imgs = document.getElementsByClassName('slider');
-	for(let 
+	for(let slider of imgs){
+		let butt = new Array(2);
 		let visible = document.createElement("div");
 		let allImgs = document.createElement("div");
 		let sChild = slider.children;
@@ -14,8 +15,9 @@ function Struct(){
 			butt[i] = document.createElement("button");
 		}
 		visible.classList.add('visible');
-		allImgs.classL);
-		butt[0lassList.add('btnpass','next');
+		allImgs.classList.add('all-imgs');
+		butt[0].classList.add('btnpass','prev');
+		butt[1].classList.add('btnpass','next');
 
 		for(let i = 0; i < sCLenght; i++){
 			sChild[0].classList.add('rtimg');			
