@@ -1,0 +1,1 @@
+Slider con JS puro
